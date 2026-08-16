@@ -18,16 +18,18 @@ Docker Compose automates named volume orchestration for seamless disk persistenc
 1. Download the compose.yml file into your directory.
 2. Fire up the application cluster: 
 
-bash
+```bash
 
 docker compose up -d
+
+```
 
 
 ### Option B: Spin Up via Raw Docker CLI
 
 If you prefer binding raw directory mappings straight to your host system directories, use the run string below: 
 
-bash
+```bash
 
 docker run -d \
   -p 5000:5000 \
@@ -36,6 +38,8 @@ docker run -d \
   --name insta-downloader \
   --restart always \
   arthytech/instagram-downloader:latest
+
+```
 
 ### 🍪 Instagram Cookie Injection
 
@@ -69,42 +73,49 @@ python -m venv venv
 
   * **Windows (Command Prompt):** 
 
-cmd
+```cmd
 
 venv\Scripts\activate
+
+```
 
 
   * **Windows (PowerShell):** 
 
-powershell
+```powershell
 
 .\venv\Scripts\activate
+
+```
 
 
   * **macOS / Linux:** 
 
-bash
+```bash
 
 source venv/bin/activate
+
+```
 
 
 4. **Install backend dependencies:** 
 
-bash
+```bash
 
 pip install -r requirements.txt
 
+```
 
 
 ### 🏃 Running the Server
 
 Start the local Flask app infrastructure by running: 
 
-bash
+```bash
 
 python app.py
 
-
+```
 
 Once initialized, navigate to the local portal inside your web browser: http://127.0.0.1:5000 
 
