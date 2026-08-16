@@ -2,8 +2,8 @@
 
 A lightweight, self-hosted web utility built with Flask, Python, and gallery-dl to download and manage Instagram posts, reels, and profiles. This application provides a modern, touch-friendly UI that is fully optimized for media previews and instant downloads on mobile web layouts (including iOS Safari). 
 
-!(IGDL Home Page)[https://imgur.com/aayQmF3.png]
-
+![IGDL Home Page](https://imgur.com/aayQmF3.png)
+<br/><br/>
 
 ### ⚠️ SECURITY WARNING (READ BEFORE USE)
 
@@ -49,26 +49,31 @@ IGDL supports all types of media from instagram, including posts, reel, stories 
 
 1. Under the post, click on send
 ![IG Post](https://imgur.com/20pas8w.png)
+<br/><br/>
 
 2. Click on Copy link
 ![DL IG Post](https://imgur.com/JKNBVdt.png)
+<br/><br/>
 
 3. You can append the url at the end of your IGDL's url (a) OR paste the post's url to IGDL's home page (b)
 (a)
 ![Append URL](https://imgur.com/29jbDob.png)
-
+<br/><br/>
 
 (b)
 ![Paste URL](https://imgur.com/HJQa76L.png)
+<br/><br/>
 
 4. The content will be downloaded and appear under the page
 ![DLed Content](https://imgur.com/ufC1AgK.png)
+<br/><br/>
 
 
 ### View downloaded media
 
 To view media stored in IGDL, navigate to gallery page
 ![Gallery](https://imgur.com/WU8KDEe.png)
+<br/><br/>
 
 You can download the media again, or remove it from the server
 
@@ -79,10 +84,12 @@ To reliably capture content and bypass Instagram's restrictive login redirects, 
 1. Export your Instagram network context tokens using a browser extension (such as *Get cookies.txt LOCALLY*).
 
 2. Save or rename the text file asset explicitly to instagram-cookies.txt.
-![Ext.](https://imgur.com/AHBAB8X)
+![Ext.](https://imgur.com/AHBAB8X.png)
+<br/><br/>
 
 3. Upload it directly using the frontend web UI panel at /settings, or place it manually in the local workspace directory inside a folder named cookies/.
 ![Settings](https://imgur.com/8SX9H6j.png)
+<br/><br/>
 
 ### 🚀 Local Installation (Development)
 
