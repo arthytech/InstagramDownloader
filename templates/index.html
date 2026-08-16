@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% from 'macros.html' import media_card %}
+
+{% block content %}
+<div class="meta-card">
+    <div class="brand-header">Downloader</div>
+    <div class="subtitle">Paste a link to any Instagram post, reel, or profile to fetch the media files.</div>
+
+    <form id="dlForm">
+        <div class="form-group">
+            <input type="text" id="url" name="url" placeholder="https://instagram.com..." value="{% if auto_url %}{{ auto_url }}{% endif %}" required>
+        </div>
+        <button type="submit" id="submitBtn">Download</button>
+    </form>
+
+    <div id="status"></div>
+
+    <div id="downloadResultsGrid" class="media-grid" style="margin-top: 20px;"></div>
+</div>
+
+<script src="{{ url_for('static', filename='js/downloader.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

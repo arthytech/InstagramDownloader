@@ -1,0 +1,6 @@
+{
+    "extractor": {
+        "archive": "./gallery-dl/instagram/download-archive.sqlite3",
+        "skip": "true"
+    }
+}

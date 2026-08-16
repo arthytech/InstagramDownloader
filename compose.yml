@@ -1,0 +1,18 @@
+services:
+  downloader:
+    image: arthytech/instagram-downloader:latest
+    container_name: insta-downloader
+    ports:
+      - "5000:5000"
+    volumes:
+      - gallery_data:/app/gallery-dl
+      - cookies_data:/app/cookies
+    environment:
+      - FLASK_ENV=production
+    restart: always
+
+volumes:
+  gallery_data:
+    driver: local
+  cookies_data:
+    driver: local

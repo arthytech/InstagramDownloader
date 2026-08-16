@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% from 'macros.html' import media_card %}
+
+{% block content %}
+<div class="media-container">
+    {% if not users_media %}
+        <div class="no-media-message">No media downloaded yet.</div>
+    {% else %}
+        {% for username, files in users_media.items() %}
+            <div id="user-block-{{ username }}" class="user-block">
+                <div class="user-header">
+                    <span class="username">@{{ username }}</span>
+                    <span id="count-{{ username }}" class="item-count">{{ files|length }} items</span>
+                </div>
+                
+                <div class="media-grid">
+                    {% for item in files %}
+                        <!-- RENDERING SHARED MACRO ELEMENT -->
+                        {{ media_card(
+                            url=item.url, 
+                            is_video=item.is_video, 
+                            username=username, 
+                            card_id="media-card-" ~ loop.index0 ~ "-" ~ username
+                        ) }}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
