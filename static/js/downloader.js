@@ -20,6 +20,12 @@ form.addEventListener('submit', async (e) => {
             body: JSON.stringify({ url: url })
         });
         
+        const contentType = response.headers.get("content-type");
+        if (!contentType || !contentType.includes("application/json")) {
+            const rawText = await response.text();
+            throw new Error(`Status: ${response.status}. Raw response: ${rawText.substring(0, 200)}`);
+        }
+
         const data = await response.json();
         
         if (data.success) {
@@ -64,7 +70,6 @@ form.addEventListener('submit', async (e) => {
                 window.history.replaceState({}, document.title, '/');
             }
         } else {
-            // Displays detailed server validation logs if download fails
             statusDiv.className = 'error';
             const errorText = data.error || 'Download failed with unknown error.';
             statusDiv.innerHTML = `<div style="font-weight: 700; margin-bottom: 6px;">Download Failed:</div><pre style="margin: 0; white-space: pre-wrap; font-family: monospace; font-size: 12px; text-align: left; background: #FFF5F5; padding: 10px; border-radius: 6px; border: 1px solid #FFCCD0;">${errorText}</pre>`;

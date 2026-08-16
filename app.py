@@ -23,6 +23,9 @@ def download():
     data = request.get_json()
     target_url = data.get('url')
     
+    print("=== DEBUG: Received URL from JavaScript ===")
+    print(repr(target_url))
+    
     if not target_url:
         return jsonify({"success": False, "error": "No URL provided"}), 400
                 
@@ -35,6 +38,9 @@ def download():
     cookies_path = os.path.join('cookies', 'instagram-cookies.txt')
     if os.path.exists(cookies_path):
         command.extend(["--cookies", cookies_path])
+        
+    print("=== DEBUG: Full command sent to subprocess ===")
+    print(command)
         
     try:
         result = subprocess.run(command, capture_output=True, text=True, check=True)
@@ -83,7 +89,7 @@ def download():
             "success": False,
             "error": error_details.strip()
         }), 500
-
+    
 @app.route('/gallery-dl/<path:filename>')
 def serve_gallery_dl(filename):
     base_dir = os.path.join(app.root_path, 'gallery-dl')
