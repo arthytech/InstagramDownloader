@@ -1,9 +1,9 @@
 ### Instagram Media Downloader
 
-A lightweight, self-hosted web utility built with Flask, Python, and gallery-dl to download and manage Instagram posts, reels, and profiles. This application provides a modern, touch-friendly UI that is fully optimized for media previews and instant downloads on mobile web layouts (including iOS Safari). 
+A lightweight, self-hosted web utility built with Flask, Python, and gallery-dl to download and manage Instagram posts, reels, and profiles. This application provides a modern, touch-friendly UI that is fully optimized for media previews and instant downloads on mobile web layouts (including iOS Safari). <br/><br/>
 
 ![IGDL Home Page](https://imgur.com/aayQmF3.png)
-<br/><br/>
+
 
 ### ⚠️ SECURITY WARNING (READ BEFORE USE)
 
@@ -47,33 +47,31 @@ docker run -d \
 
 IGDL supports all types of media from instagram, including posts, reel, stories and profile.
 
-1. Under the post, click on send
+1. Under the post, click on send<br/><br/>
 ![IG Post](https://imgur.com/20pas8w.png)
-<br/><br/>
 
-2. Click on Copy link
+2. Click on Copy link<br/><br/>
 ![DL IG Post](https://imgur.com/JKNBVdt.png)
-<br/><br/>
 
 3. You can append the url at the end of your IGDL's url (a) OR paste the post's url to IGDL's home page (b)
-(a)
+(a)<br/><br/>
 ![Append URL](https://imgur.com/29jbDob.png)
-<br/><br/>
 
-(b)
+
+(b)<br/><br/>
 ![Paste URL](https://imgur.com/HJQa76L.png)
-<br/><br/>
 
-4. The content will be downloaded and appear under the page
+
+4. The content will be downloaded and appear under the page<br/><br/>
 ![DLed Content](https://imgur.com/ufC1AgK.png)
-<br/><br/>
+
 
 
 ### View downloaded media
 
-To view media stored in IGDL, navigate to gallery page
+To view media stored in IGDL, navigate to gallery page<br/><br/>
 ![Gallery](https://imgur.com/WU8KDEe.png)
-<br/><br/>
+
 
 You can download the media again, or remove it from the server
 
@@ -83,13 +81,13 @@ To reliably capture content and bypass Instagram's restrictive login redirects, 
 
 1. Export your Instagram network context tokens using a browser extension (such as *Get cookies.txt LOCALLY*).
 
-2. Save or rename the text file asset explicitly to instagram-cookies.txt.
+2. Save or rename the text file asset explicitly to instagram-cookies.txt.<br/><br/>
 ![Ext.](https://imgur.com/AHBAB8X.png)
-<br/><br/>
 
-3. Upload it directly using the frontend web UI panel at /settings, or place it manually in the local workspace directory inside a folder named cookies/.
+
+3. Upload it directly using the frontend web UI panel at /settings, or place it manually in the local workspace directory inside a folder named cookies/.<br/><br/>
 ![Settings](https://imgur.com/8SX9H6j.png)
-<br/><br/>
+
 
 ### 🚀 Local Installation (Development)
 
