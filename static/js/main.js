@@ -1,8 +1,3 @@
-// static/js/main.js
-
-/**
- * Global Shared Media Deletion Engine
- */
 async function deleteMedia(url, username, elementId) {
     if (!url || !elementId) return;
     if (!confirm('Are you sure you want to delete this media file from server?')) return;
@@ -24,7 +19,6 @@ async function deleteMedia(url, username, elementId) {
             const parentGrid = targetWrapper.parentNode;
             targetWrapper.remove();
             
-            // Check if there's a gallery counter to update on the current page
             if (parentGrid) {
                 const remainingCards = parentGrid.querySelectorAll('.media-card-wrapper').length;
                 const countSpan = document.getElementById(`count-${username}`);
@@ -50,3 +44,39 @@ async function deleteMedia(url, username, elementId) {
         alert('Server error during deletion.');
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.body.addEventListener('click', (event) => {
+        const toggleHeader = event.target.closest('.toggle-btn');
+        if (!toggleHeader) return;
+
+        const username = toggleHeader.getAttribute('data-username');
+        const userBlock = document.getElementById(`user-block-${username}`);
+        const arrow = toggleHeader.querySelector('.toggle-arrow');
+
+        if (!userBlock || !arrow) return;
+
+        // Toggle the structural state class
+        const isCollapsed = userBlock.classList.toggle('collapsed');
+
+        // Update the visual indicator icon instantly
+        arrow.innerText = isCollapsed ? '▼' : '▲';
+
+        // On-demand Loading Engine: Run only if we just opened the block
+        if (!isCollapsed) {
+            const lazyMediaElements = userBlock.querySelectorAll('.lazy-media[data-src]');
+            
+            lazyMediaElements.forEach(media => {
+                // Move path from data-src back to src so browser downloads it
+                media.src = media.getAttribute('data-src');
+                // Remove data-src attribute so we don't re-process it next time
+                media.removeAttribute('data-src');
+                
+                // If it's a video, tell the browser to explicitly look for the new source
+                if (media.tagName === 'VIDEO') {
+                    media.load();
+                }
+            });
+        }
+    });
+});

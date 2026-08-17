@@ -7,15 +7,20 @@
         <div class="no-media-message">No media downloaded yet.</div>
     {% else %}
         {% for username, files in users_media.items() %}
-            <div id="user-block-{{ username }}" class="user-block">
-                <div class="user-header">
-                    <span class="username">@{{ username }}</span>
-                    <span id="count-{{ username }}" class="item-count">{{ files|length }} items</span>
+            <!-- Added 'collapsed' class to hide grid by default -->
+            <div id="user-block-{{ username }}" class="user-block collapsed">
+                <!-- Added 'toggle-btn' for click interactions -->
+                <div class="user-header toggle-btn" data-username="{{ username }}">
+                    <div class="header-left">
+                        <span class="username">@{{ username }}</span>
+                        <span id="count-{{ username }}" class="item-count">{{ files|length }} items</span>
+                    </div>
+                    <!-- Added arrow icon indicator -->
+                    <span class="toggle-arrow">▼</span>
                 </div>
                 
                 <div class="media-grid">
                     {% for item in files %}
-                        <!-- RENDERING SHARED MACRO ELEMENT -->
                         {{ media_card(
                             url=item.url, 
                             is_video=item.is_video, 

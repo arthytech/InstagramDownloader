@@ -3,12 +3,14 @@
     <div class="media-card">
         <a href="{{ url }}" target="_blank" class="media-link">
             {% if is_video %}
-                <video src="{{ url }}" class="media-element"></video>
+                <!-- Swapped src for data-src, added lazy-media class, added preload="none" -->
+                <video data-src="{{ url }}" class="media-element lazy-media" preload="none"></video>
                 <div class="video-icon-overlay">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M5 4v16l15-8z"/></svg>
                 </div>
             {% else %}
-                <img src="{{ url }}" class="media-element" loading="lazy">
+                <!-- Swapped src for data-src, added lazy-media class -->
+                <img data-src="{{ url }}" class="media-element lazy-media">
             {% endif %}
         </a>
     </div>

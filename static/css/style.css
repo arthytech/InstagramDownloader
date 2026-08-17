@@ -509,3 +509,38 @@ button:disabled {
         gap: 20px;
     }
 }
+
+/* Container Headers */
+.user-header.toggle-btn {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    padding: 10px 15px;
+    background-color: #f8f9fa; /* Match or adjust to your current background theme */
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.user-header.toggle-btn:hover {
+    background-color: #e9ecef;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Visual Indicator Arrow */
+.toggle-arrow {
+    font-size: 0.8rem;
+    color: #6c757d;
+    transition: transform 0.2s ease;
+}
+
+/* Accordion Visibility Engine */
+.user-block.collapsed .media-grid {
+    display: none !important;
+}
