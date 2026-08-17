@@ -39,9 +39,6 @@ def download():
     if os.path.exists(cookies_path):
         command.extend(["--cookies", cookies_path])
         
-    print("=== DEBUG: Full command sent to subprocess ===")
-    print(command)
-        
     try:
         result = subprocess.run(command, capture_output=True, text=True, check=True)
         
