@@ -3,7 +3,17 @@
     <div class="media-card">
         <a href="{{ url }}" target="_blank" class="media-link">
             {% if is_video %}
-                <img data-src="{{ url }}" class="media-element lazy-media video-fallback-thumb">
+                <!-- 核心修正：影片區塊改回 video 標籤，PC 與 iOS 都能完美相容 -->
+                <!-- preload="none" 確保折疊時零流量 -->
+                <!-- playsinline, muted, autoplay 確保展開時 PC/iOS 都會自動加載並停格在第一格畫面 -->
+                <video 
+                    data-src="{{ url }}" 
+                    class="media-element lazy-media video-fallback-thumb" 
+                    preload="none" 
+                    playsinline 
+                    muted 
+                    autoplay>
+                </video>
                 <div class="video-icon-overlay" style="display: flex;">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M5 4v16l15-8z"/></svg>
                 </div>

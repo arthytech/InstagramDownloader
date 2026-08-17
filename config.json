@@ -1,6 +1,9 @@
 {
     "extractor": {
         "archive": "./gallery-dl/instagram/download-archive.sqlite3",
-        "skip": "true"
+        "skip": "true",
+        "instagram": {
+            "videos": "merged"
+        }
     }
 }
