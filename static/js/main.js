@@ -69,13 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
             lazyMediaElements.forEach(media => {
                 // Move path from data-src back to src so browser downloads it
                 media.src = media.getAttribute('data-src');
-                // Remove data-src attribute so we don't re-process it next time
                 media.removeAttribute('data-src');
                 
-                // If it's a video, tell the browser to explicitly look for the new source
-                if (media.tagName === 'VIDEO') {
-                    media.load();
-                }
+                // if (media.tagName === 'VIDEO') {
+                //     media.load();
+                // }
             });
         }
     });
