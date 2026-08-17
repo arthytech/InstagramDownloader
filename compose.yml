@@ -1,7 +1,6 @@
 services:
   downloader:
     image: arthytech/igdownloader:latest
-    container_name: insta-downloader
     ports:
       - "5000:5000"
     volumes:
