@@ -43,10 +43,19 @@ form.addEventListener('submit', async (e) => {
                             <div class="media-card">
                                 <a href="${fileUrl}" target="_blank" class="media-link">
                                     ${isVideo ? `
-                                        <video src="${fileUrl}" class="media-element"></video>
-                                        <div class="video-icon-overlay"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M5 4v16l15-8z"/></svg></div>
+                                        <video 
+                                            src="${fileUrl}" 
+                                            class="media-element lazy-media video-fallback-thumb" 
+                                            preload="none" 
+                                            playsinline 
+                                            muted 
+                                            autoplay>
+                                        </video>
+                                        <div class="video-icon-overlay" style="display: flex;">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M5 4v16l15-8z"/></svg>
+                                        </div>
                                     ` : `
-                                        <img src="${fileUrl}" class="media-element" loading="lazy">
+                                        <img src="${fileUrl}" class="media-element lazy-media">
                                     `}
                                 </a>
                             </div>
